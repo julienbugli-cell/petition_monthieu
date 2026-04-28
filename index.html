@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pétition pour le classement en REP de l'école Monthieu à Saint-Étienne. Signez et faites circuler.">
+<title>Classement REP pour Monthieu — Pétition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rouge: #C00000;
+    --rouge-clair: #FCE4D6;
+    --noir: #111111;
+    --gris: #444444;
+    --gris-clair: #F5F5F5;
+    --blanc: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--noir);
+    background: var(--blanc);
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--noir);
+    color: var(--blanc);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--rouge);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rouge);
+    border: 1px solid var(--rouge);
+    padding: 3px 10px;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+  }
+  .hero h1 span { color: var(--rouge); }
+  .hero-sub {
+    font-size: 14px;
+    color: #AAAAAA;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid #E0E0E0;
+  }
+  .stat {
+    padding: 1.25rem 0.75rem;
+    text-align: center;
+    border-right: 1px solid #E0E0E0;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-weight: 900;
+    color: var(--rouge);
+    line-height: 1;
+    display: block;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--gris);
+    line-height: 1.3;
+    margin-top: 4px;
+  }
+
+  /* SECTIONS */
+  .section { padding: 2rem 1.5rem; max-width: 640px; margin: 0 auto; }
+  .section + .section { border-top: 1px solid #E0E0E0; }
+
+  .section-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rouge);
+    margin-bottom: 0.75rem;
+  }
+
+  .section p { margin-bottom: 0.9rem; font-size: 15px; }
+  .section p:last-child { margin-bottom: 0; }
+  .section strong { font-weight: 500; }
+  .section em { font-style: italic; color: var(--gris); }
+
+  /* DEMANDES */
+  .demandes { list-style: none; }
+  .demandes li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 15px;
+  }
+  .demandes li:last-child { border-bottom: none; }
+  .demandes li::before {
+    content: '→';
+    color: var(--rouge);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .demandes-dest {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--noir);
+    padding: 0.75rem 0 0.25rem;
+  }
+
+  /* FORMULAIRE */
+  .form-section {
+    background: var(--noir);
+    color: var(--blanc);
+    padding: 2.5rem 1.5rem;
+  }
+  .form-inner { max-width: 640px; margin: 0 auto; }
+  .form-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .form-title span { color: var(--rouge); }
+  .form-sub { font-size: 14px; color: #AAAAAA; margin-bottom: 1.5rem; }
+
+  .form-row { margin-bottom: 1rem; }
+  .form-row label {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888888;
+    margin-bottom: 6px;
+  }
+  .form-row input, .form-row select {
+    width: 100%;
+    background: #222222;
+    border: 1px solid #333333;
+    color: var(--blanc);
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    padding: 0.7rem 0.9rem;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.15s;
+    -webkit-appearance: none;
+  }
+  .form-row input:focus, .form-row select:focus {
+    border-color: var(--rouge);
+  }
+  .form-row input::placeholder { color: #555555; }
+
+  .form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 1.25rem;
+    font-size: 13px;
+    color: #AAAAAA;
+    line-height: 1.5;
+  }
+  .form-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    accent-color: var(--rouge);
+    cursor: pointer;
+  }
+
+  .btn-sign {
+    width: 100%;
+    background: var(--rouge);
+    color: var(--blanc);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: none;
+    padding: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-sign:hover { background: #A00000; }
+  .btn-sign:active { transform: scale(0.98); }
+  .btn-sign:disabled { background: #444444; cursor: not-allowed; }
+
+  /* SUCCESS */
+  .success-msg {
+    display: none;
+    background: #1a3a1a;
+    border: 1px solid #2d6a2d;
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    margin-top: 1rem;
+    font-size: 15px;
+    color: #90EE90;
+    text-align: center;
+  }
+
+  /* COUNTER */
+  .counter-bar {
+    background: var(--gris-clair);
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  .counter-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--rouge);
+    line-height: 1;
+  }
+  .counter-label { font-size: 13px; color: var(--gris); margin-top: 4px; }
+
+  /* INSTAGRAM */
+  .insta-bar {
+    background: var(--rouge);
+    color: var(--blanc);
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+  }
+  .insta-bar p { font-size: 14px; margin-bottom: 0.5rem; }
+  .insta-handle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 11px;
+    color: #999999;
+    border-top: 1px solid #E0E0E0;
+  }
+
+  @media (max-width: 400px) {
+    .stats { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid #E0E0E0; }
+    .stat:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">Pétition — Saint-Étienne 2026</div>
+  <h1>Classement REP<br>pour <span>Monthieu</span> :<br>assez d'attendre</h1>
+  <p class="hero-sub">Adressée à la Mairie de Saint-Étienne et au Rectorat de l'Académie de Lyon</p>
+</header>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <span class="stat-val">78,7</span>
+    <div class="stat-label">IPS de l'école Monthieu</div>
+  </div>
+  <div class="stat">
+    <span class="stat-val">99,9</span>
+    <div class="stat-label">Moyenne Loire (public)</div>
+  </div>
+  <div class="stat">
+    <span class="stat-val">14</span>
+    <div class="stat-label">Écoles stéphanoises dans la même situation</div>
+  </div>
+</div>
+
+<!-- COMPTEUR SIGNATURES -->
+<div class="counter-bar">
+  <div class="counter-num" id="sigCount">0</div>
+  <div class="counter-label">signatures recueillies</div>
+</div>
+
+<!-- POURQUOI -->
+<div class="section">
+  <div class="section-tag">Pourquoi cette pétition</div>
+  <p>L'école primaire Monthieu accueille des enfants allophones, des familles en grande précarité, des élèves face à des difficultés socio-éducatives sévères. Son indice de position sociale est de <strong>78,7</strong> — 21 points sous la moyenne du département.</p>
+  <p>Elle alimente le collège Jules Vallès, classé <strong>REP+</strong>. Et pourtant : aucun classement en réseau d'éducation prioritaire. Aucun moyen supplémentaire. Aucune reconnaissance.</p>
+  <p><em>Cette situation n'est pas une anomalie administrative. C'est un choix qui se renouvelle chaque année. Et nous refusons qu'il se renouvelle encore.</em></p>
+</div>
+
+<!-- DEMANDES -->
+<div class="section">
+  <div class="section-tag">Nos demandes</div>
+  <div class="demandes-dest">À la Mairie de Saint-Étienne</div>
+  <ul class="demandes">
+    <li>Appliquer les engagements de campagne sur l'éducation : prendre en compte l'IPS des écoles pour l'allocation des postes d'ATSEM.</li>
+    <li>Peser de son autorité auprès du Rectorat pour obtenir le classement REP de Monthieu.</li>
+  </ul>
+  <div class="demandes-dest">Au Rectorat de l'Académie de Lyon</div>
+  <ul class="demandes">
+    <li>Classer immédiatement l'école Monthieu en REP, en cohérence avec sa continuité pédagogique avec le collège Jules Vallès (REP+).</li>
+    <li>Réviser la carte EP stéphanoise sans attendre 2027.</li>
+  </ul>
+</div>
+
+<!-- MOBILISATION -->
+<div class="section">
+  <div class="section-tag">Mobilisons-nous</div>
+  <p>En avril 2026, les enseignants et parents du collège Honoré d'Urfé ont lancé une grève reconductible pour exiger leur classement REP+. Ils ont montré que <strong>la mobilisation collective fait bouger les lignes</strong>.</p>
+  <p>Signez. Faites circuler. Venez nous rejoindre.</p>
+</div>
+
+<!-- FORMULAIRE -->
+<div class="form-section" id="signer">
+  <div class="form-inner">
+    <div class="form-title">Je <span>signe</span><br>la pétition</div>
+    <p class="form-sub">Vos données ne seront utilisées que dans le cadre de cette démarche.</p>
+
+    <form id="petitionForm" novalidate>
+      <div class="form-row">
+        <label for="prenom">Prénom *</label>
+        <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required autocomplete="given-name">
+      </div>
+      <div class="form-row">
+        <label for="nom">Nom *</label>
+        <input type="text" id="nom" name="nom" placeholder="Votre nom" required autocomplete="family-name">
+      </div>
+      <div class="form-row">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" placeholder="votre@email.fr" required autocomplete="email">
+      </div>
+      <div class="form-row">
+        <label for="lien">Lien avec l'école</label>
+        <select id="lien" name="lien">
+          <option value="">— Choisir —</option>
+          <option value="parent">Parent d'élève de Monthieu</option>
+          <option value="parent_autre">Parent d'élève d'une autre école</option>
+          <option value="enseignant">Enseignant(e)</option>
+          <option value="habitant">Habitant(e) du quartier</option>
+          <option value="citoyen">Citoyen(ne) solidaire</option>
+        </select>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" id="rgpd" name="rgpd" required>
+        <label for="rgpd">J'accepte que mes nom, prénom et statut soient publiés dans la liste des signataires. Mon adresse email ne sera pas diffusée.</label>
+      </div>
+      <button type="submit" class="btn-sign" id="submitBtn">✊ Je signe la pétition</button>
+      <div class="success-msg" id="successMsg">
+        ✓ Merci pour votre signature ! Partagez la pétition autour de vous.
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="insta-bar">
+  <p>Suivez la mobilisation sur Instagram</p>
+  <div class="insta-handle">@monthieu_rep</div>
+</div>
+
+<footer>
+  Sources : DEPP / data.education.gouv.fr — IPS 2024-2025 · TL7, 24 avril 2026<br>
+  Initiative des parents d'élèves de l'école Monthieu, Saint-Étienne (Loire)
+</footer>
+
+<script>
+  const STORAGE_KEY = 'petition_monthieu_sigs';
+
+  function getSigs() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
+  }
+  function saveSig(sig) {
+    const sigs = getSigs();
+    sigs.push(sig);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(sigs));
+    return sigs.length;
+  }
+  function updateCounter(n) {
+    document.getElementById('sigCount').textContent = n;
+  }
+
+  updateCounter(getSigs().length);
+
+  document.getElementById('petitionForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const prenom = document.getElementById('prenom').value.trim();
+    const nom    = document.getElementById('nom').value.trim();
+    const email  = document.getElementById('email').value.trim();
+    const lien   = document.getElementById('lien').value;
+    const rgpd   = document.getElementById('rgpd').checked;
+
+    if (!prenom || !nom || !email || !rgpd) {
+      alert('Merci de remplir tous les champs obligatoires et d\'accepter les conditions.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Adresse email invalide.');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Signature enregistrée ✓';
+
+    const count = saveSig({ prenom, nom, lien, date: new Date().toISOString() });
+    updateCounter(count);
+
+    document.getElementById('successMsg').style.display = 'block';
+    document.getElementById('petitionForm').querySelectorAll('input, select').forEach(el => el.disabled = true);
+  });
+</script>
+</body>
+</html>
